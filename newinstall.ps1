@@ -90,4 +90,10 @@ cinst pia -y
 #cinst sonarr -y
 #cinst sabnzbd -y
 
+#Install PSWindowsUpdate to handle...windows updates.
+Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force        
+install-module -Name PSWindowsUpdate -Repository PSGallery –Force –Verbose
+
+#use that new module you just installed and install updates.  
+Install-WindowsUpdate -AcceptAll -RecurseCycle 2 -AutoReboot
 
